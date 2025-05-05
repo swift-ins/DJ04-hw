@@ -1,0 +1,1 @@
+"C:\Users\Public\anaconda3\python.exe" manage.py runserver

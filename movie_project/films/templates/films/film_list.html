@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Список фильмов</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="container mt-5">
+    <h1 style="color: #007BFF;">Список фильмов корейского режиссера Ким Ки Дука</h1>
+
+    <img src="{% static 'films/img/kkd.jpg' %}" alt="Ким Ки Дук" class="img-fluid my-4 rounded shadow">
+
+    {% for film in films %}
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">{{ film.title }}</h5>
+                <p class="card-text"><strong>Описание:</strong> {{ film.description }}</p>
+                <p class="card-text"><strong>Отзыв:</strong> {{ film.review }}</p>
+            </div>
+        </div>
+    {% empty %}
+        <p>Фильмов пока нет.</p>
+    {% endfor %}
+    
+    <a href="{% url 'add_film' %}" class="btn btn-primary">Добавить новый фильм</a>
+</body>
+</html>
